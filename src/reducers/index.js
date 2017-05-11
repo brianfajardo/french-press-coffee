@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux'
+import library from './library_reducer'
 
 export default combineReducers({
-  state: (state = {}) => state
+  library
 })
