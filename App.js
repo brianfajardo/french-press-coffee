@@ -9,7 +9,7 @@ import LibraryContainer from './src/containers/LibraryContainer'
 
 export default () =>
   <Provider store={createStore(rootReducer)}>
-    <View>
+    <View style={{ flex: 1 }}>
       <Header text="What's your STACK? 🤖" />
       <LibraryContainer />
     </View>

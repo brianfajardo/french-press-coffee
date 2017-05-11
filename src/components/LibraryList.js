@@ -5,6 +5,7 @@ import PropTypes from 'prop-types'
 import LibraryListItem from './LibraryListItem'
 
 export default class LibraryList extends Component {
+
   componentWillMount() {
     // Initializing a dataSource for ListView
     const ds = new ListView.DataSource({
