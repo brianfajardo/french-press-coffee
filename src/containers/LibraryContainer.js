@@ -6,6 +6,7 @@ import PropTypes from 'prop-types'
 import LibraryList from '../components/LibraryList'
 
 class LibraryContainer extends Component {
+
   render() {
     return <LibraryList {...this.props} />
   }
