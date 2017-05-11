@@ -5,14 +5,12 @@ import { createStore } from 'redux'
 import rootReducer from './src/reducers'
 
 import Header from './src/components/Header'
-import LibraryList from './src/containers/LibraryList'
-
-const store = createStore(rootReducer)
+import LibraryContainer from './src/containers/LibraryContainer'
 
 export default () =>
-  <Provider store={store} style={{ flex: 1 }}>
+  <Provider store={createStore(rootReducer)}>
     <View>
       <Header text="What's your STACK? 🤖" />
-      <LibraryList />
+      <LibraryContainer />
     </View>
   </Provider>
