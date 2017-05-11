@@ -16,7 +16,13 @@ const mapStateToProps = ({ library }) => ({
 })
 
 LibraryList.propTypes = {
-  library: PropTypes.array.isRequired
+  library: PropTypes.arrayOf(
+    PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    title: PropTypes.string.isRequired,
+    description: PropTypes.string
+    })
+  ).isRequired
 }
 
 export default connect(mapStateToProps)(LibraryList)
