@@ -1,14 +1,24 @@
 import React, { Component } from 'react'
-import { Text, StyleSheet, TouchableWithoutFeedback, View } from 'react-native'
+import {
+  View,
+  Text,
+  StyleSheet,
+  TouchableWithoutFeedback,
+  LayoutAnimation
+} from 'react-native'
 import { connect } from 'react-redux'
 import { Card, Divider } from 'react-native-elements'
 import PropTypes from 'prop-types'
 import * as actions from '../actions/'
 
 class LibraryListItem extends Component {
+
+  componentWillUpdate() {
+    LayoutAnimation.spring()
+  }
+
   renderDescription() {
     const { shouldExpandRow, description } = this.props
-
     return (
       shouldExpandRow
         ? <View>
@@ -21,7 +31,6 @@ class LibraryListItem extends Component {
 
   render() {
     const { id, title, selectLibrary } = this.props
-
     return (
       <TouchableWithoutFeedback onPress={() => selectLibrary(id)}>
         <View>
@@ -38,7 +47,6 @@ class LibraryListItem extends Component {
 const mapStateToProps = ({ selectedLibraryID }, { id }) => {
   // Boolean flag used to render selected library
   const shouldExpandRow = selectedLibraryID === id
-
   return { shouldExpandRow }
 }
 
