@@ -6,12 +6,11 @@ import LibraryListItem from './LibraryListItem'
 
 export default class LibraryList extends Component {
 
-  componentWillMount() {
+  constructor(props) {
+    super(props)
     // Initializing a dataSource for ListView
-    const ds = new ListView.DataSource({
-      rowHasChanged: (r1, r2) => r1 !== r2
-    })
-    this.dataSource = ds.cloneWithRows(this.props.library)
+    const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 })
+    this.state = { dataSource: ds.cloneWithRows(this.props.library) }
   }
 
   renderRow(library) {
@@ -22,7 +21,7 @@ export default class LibraryList extends Component {
   render() {
     return (
       <ListView
-        dataSource={this.dataSource}
+        dataSource={this.state.dataSource}
         renderRow={this.renderRow}
       />
     )

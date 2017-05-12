@@ -1,7 +1,7 @@
 import { SELECT_LIBRARY } from '../constants/actionTypes'
 
 export default (state = null, action) => {
-  switch (action.payload) {
+  switch (action.type) {
     case SELECT_LIBRARY:
       return action.payload
     default:
