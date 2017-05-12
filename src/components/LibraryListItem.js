@@ -6,12 +6,11 @@ import PropTypes from 'prop-types'
 import * as actions from '../actions/'
 
 class LibraryListItem extends Component {
-
   renderDescription() {
-    const { selectedLibraryID, id, description } = this.props
+    const { shouldExpandRow, description } = this.props
 
     return (
-      selectedLibraryID === id
+      shouldExpandRow
         ? <View>
             <Divider style={style.dividerStyle} />
             <Text>{description}</Text>
@@ -36,9 +35,12 @@ class LibraryListItem extends Component {
   }
 }
 
-const mapStateToProps = state => ({
-  selectedLibraryID: state.selectedLibraryID
-})
+const mapStateToProps = ({ selectedLibraryID }, { id }) => {
+  // Boolean flag used to render selected library
+  const shouldExpandRow = selectedLibraryID === id
+
+  return { shouldExpandRow }
+}
 
 LibraryListItem.propTypes = {
   id: PropTypes.number.isRequired,
